@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=devicewidth, initial-scale=1.0">
+        <title>ExploraZO - Orçamento</title>
+        <link rel="stylesheet" href="CSS/style.css" type="text/css">
+    </head>
+    <body>
+        <header>
+            <img src="imagens/explorazo.png" alt="logo do ExploraZo." width="120px">
+            <h1>ExploraZO</h1>
+            <a href="login.html" id="login">Login</a>
+        </header>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="orçamento.html">Orçamento</a>
+            <a href="sobre.html">Sobre</a>
+            <hr>
+        </nav>
+
+        <main>
+            <section id="destinos">
+                <h2>Destinos:</h2>
+                <hr>
+                <figure id="gavea" class="destinos">
+                    <img src="imagens/pedragavea.webp" alt="Imagem da Pedra da Gávea" style="width: 80%;">
+                    <figcaption>Pedra da Gávea</figcaption>
+                </figure>
+                <figure id="mendanha" class="destinos">
+                    <img src="imagens/cachoeiramendanha.webp" alt="Imagem da Cachoeira do Mendanha">
+                    <figcaption>Cachoeira do Mendanha</figcaption>
+                </figure>
+                <figure id="doisirmaos" class="destinos">
+                    <img src="imagens/doisirmaos.webp" alt="Imagem do Morro Dois Irmãos" style="width: 90%;">
+                    <figcaption>Morro Dois Irmãos</figcaption>
+                </figure>
+            </section>
+            <section id="orçamento">
+                <h2>Solicite um novo orçamento:</h2>
+                <hr>
+                <form>
+                    <label for="nomeusuario">Nome do usuário:</label> <br>
+                    <input type="text" name="nomeusuario" id="nome"> <br><br>
+
+                    <label for="emailusuario">Email do usuário:</label> <br>
+                    <input type="email" name="emailusuario" id="email"> <br><br>
+
+                    <label for="destino">Destino de interesse:</label> <br>
+                    <select id="destino" name="destino">
+                        <option value="Pedra da Gávea">Pedra da Gávea</option>
+                        <option value="Trilha do Mendanha">Trilha do Mendanha</option>
+                        <option value="Morro dos dois irmãos">Morro dois irmãos</option>
+                    </select><br><br>
+
+                    <label for="data">Data prevista:</label> <br>
+                    <input type="date" name="data" id="data"> <br><br>
+
+                    <label for="mensagem">Observações:</label> <br>
+                    <textarea id="mensagem" name="mensagem"></textarea> <br><br>
+
+                    <button type="submit">Solicitar orçamento</button><br>
+                </form>
+            </section>
+        </main>
+        <footer style="color: white;">
+            <p><h2>Nossos Canais de atendimento</h2>              
+            <p>contatosexplorazo@gmail.com</p>
+            <p>(21) 93454-2234</p>
+            <p>Rua francisco de campos, 354, Campo Grande.</p><hr>
+            <p>&copy; 2026 ExploraZO. Todos os direitos reservados.</p>
+        </footer>
+    </body>
+</html>

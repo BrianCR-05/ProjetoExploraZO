@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CSS/style.css" type="text/css">
+        <title>ExploraZO - Criar Conta</title>
+    </head>
+    <body>
+        <header>
+            <img src="imagens/explorazo.png" alt="logo do ExploraZo." width="120px">
+            <h1>ExploraZO</h1>
+            <a href="login.html" id="login">Login</a>
+        </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="orçamento.html">Orçamento</a>
+            <a href="sobre.html">Sobre</a>
+            <hr>
+        </nav>
+        <main>
+            <section id="principal">
+                <h2>Crie sua conta para começar a explorar o mundo!</h2>
+
+                <form method="GET" action="#" enctype="multipart/form-data">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" placeholder="Digite seu nome" required minlength="15" maxlength="60"><br><br>
+ 
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" placeholder="Digite seu e-mail" required><br><br>
+
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" placeholder="Digite sua senha" required minlength="8" maxlength="8"><br><br>
+
+                    <label for="nascimento">Data de Nascimento:</label>
+                    <input type="date" id="nascimento" required><br><br>
+                    
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" placeholder="Digite seu telefone" required minlength="11" maxlength="11"><br><br>
+
+                    <label for="genero">Gênero:</label>
+                    <input type="radio" id="masculino" name="genero" value="masculino" required>
+                    <label for="masculino">Masculino</label>
+                    <input type="radio" id="feminino" name="genero" value="feminino" required>
+                    <label for="feminino">Feminino</label><br><br>
+                    
+
+                    <br><input type="checkbox" id="termos" required>
+                    <label for="termos">Aceito os termos e condições</label><br><br>
+                    <button type="submit">Criar Conta</button>
+                    
+
+                </form>
+            </section>
+        </main>
+        <footer style="color: white;">
+            <p><h2>Nossos Canais de atendimento</h2>              
+            <p>contatosexplorazo@gmail.com</p>
+            <p>(21) 93454-2234</p>
+            <p>Rua francisco de campos, 354, Campo Grande.</p><hr>
+            <p>&copy; 2026 ExploraZO. Todos os direitos reservados.</p>
+        </footer>
+    </body>
+</html>
+    </body>
+</html>
