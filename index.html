@@ -3,40 +3,58 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <title>ExploraZO</title>
         <link rel="stylesheet" href="CSS/style.css" type="text/css">
     </head>
     <body>
         <header>
             <img src="imagens/explorazo.png" alt="logo do ExploraZo." width="120px">
-            <h1>ExploraZO</h1>
-            <a href="login.html" id="login">Login</a>
+            <h1>Explora<span>ZO</span></h1>
+            <a href="login.html" id="login"><i class="fa-regular fa-user"></i> Login</a>
         </header>
-
         <nav>
-            <a href="index.html">Home</a>
-            <a href="orçamento.html">Orçamento</a>
-            <a href="sobre.html">Sobre</a>
-            <hr>
+            <a href="index.html" class="ativo"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="orçamento.html"><i class="fa-regular fa-calendar"></i> Orçamento</a>
+            <a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a>
         </nav>
         <main>
-            <h1>
-                Descubra novos lugares. Viva novas experiências.
-                Planeje sua próxima viagem e descubra destinos incríveis, paisagens inesquecíveis e experiências que vão ficar na memória.
-                Encontre seu próximo destino!
-            </h1>
-            <form action="/buscar" method="GET">
-                <input type="search" id="busca" name="q" placeholder="O que procura?">
-            </form><br>
-            <img src="imagens/telegrafo.jpg" alt="Imagem da Pedra do telegrafo" style="width: 200px;">
-            <img src="imagens/tortuga.jpg" alt="Imagem da Pedra tartaruga" style="width: 140px;">
-            
+            <h2 id="destaques">Destaques</h2>
+                
+            <div id="container">
+                <section id="galeria" class="galeria">
+                    <img src="imagens/medanha.jpg" alt="Cachoeira">
+                    <img src="imagens/pedra-do-telegrafo.jpg" alt="Pedra">
+                    <img src="imagens/praia-do-perigoso.jpg" alt="Praia">
+                </section>
+
+                    <ul id="cliches">
+                        <li>Descubra novos lugares</li>
+                        <li>Conheça novas pessoas</li>
+                        <li>Viva novas aventuras</li>
+                        <li>Saia da rotina</li>
+                        <li>Sinta novas emoções</li>
+                        <li>Colecione momentos</li>
+                        <li>O mundo te espera</li>
+                        <li>Encontre novos horizontes</li>
+                    </ul>
+                    <img id="mapa" src="imagens/mapa.avif" alt="Mapa">
+                    
+            </div>
+            <search>
+                <form action="/buscar" method="get">
+                <input type="search" id="campo-busca" name="q" placeholder="Para onde vamos?" required>
+                </form>
+            </search>
+
+                <img src="imagens/vale secreto.jpg" alt="vale secreto">
+                <img src="imagens/trilha do mirante.jpeg" alt="mirante">            
         </main>
         <footer style="color: white;">
             <p><h2>Nossos Canais de atendimento</h2>              
-            <p>contatosexplorazo@gmail.com</p>
-            <p>(21) 93454-2234</p>
-            <p>Rua francisco de campos, 354, Campo Grande.</p><hr>
+            <p id="femail"><i class="fa-regular fa-envelope"></i> contatosexplorazo@gmail.com</p>
+            <p id="ftelefone"><i class="fa-solid fa-phone"></i> (21) 93454-2234</p>
+            <p><i class="fa-solid fa-location-dot"></i> Rua francisco de campos, 354, Campo Grande.</p><hr>
             <p>&copy; 2026 ExploraZO. Todos os direitos reservados.</p>
         </footer>
     </body>
