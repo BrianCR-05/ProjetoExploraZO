@@ -110,7 +110,7 @@
 
                     <div class="campo">
                         <label for="nome">Nome:</label>
-                        <input
+                        <input class="inputcampo"
                             type="text"
                             name="nomeusuario"
                             id="nome"
@@ -121,7 +121,7 @@
 
                     <div class="campo">
                         <label for="email">E-mail:</label>
-                        <input
+                        <input class="inputcampo"
                             type="email"
                             name="emailusuario"
                             id="email"
@@ -132,7 +132,7 @@
 
                     <div class="campo">
                         <label for="destino">Destino desejado:</label>
-                        <select id="destino" name="destino" required>
+                        <select id="destino" name="destino" class="inputcampo" required>
                             <option value="" disabled selected>Escolha um destino</option>
                             <option value="Pedra do Telégrafo">Pedra do Telégrafo</option>
                             <option value="Parque Estadual da Pedra Branca">Parque Estadual da Pedra Branca</option>
@@ -151,7 +151,7 @@
 
                     <div class="campo">
                         <label for="data">Data desejada:</label>
-                        <input type="date" name="data" id="data" required>
+                        <input type="date" name="data" id="data" class="inputcampo" required>
                     </div>
 
                     <fieldset>
@@ -202,6 +202,7 @@
                         <textarea
                             id="mensagem"
                             name="mensagem"
+                            class="inputcampo"
                             rows="4"
                             placeholder="Conte suas preferências para o passeio."
                         ></textarea>
