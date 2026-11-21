@@ -1,34 +1,34 @@
-// Preencha as imagens, a dificuldade e a avaliação de cada destino aqui.
+// Imagens, dificuldade e duração estimada de cada destino.
 // Para adicionar uma foto: substitua "" por "imagens/nome-da-foto.jpg".
 // O carrossel já tem três espaços para fotos em cada destino.
 const informacoesDestinos = {
     "pedra-do-telegrafo": {
-        nome: "Pedra do Telégrafo", dificuldade: "A definir", avaliacao: "Sem avaliações",
-        imagens: ["", "", ""]
+        nome: "Pedra do Telégrafo", dificuldade: "Fácil", nivel: 1, tempo: "1h30", distancia: "3 km",
+        imagens: ["imagens/telegrafo.jpg", "imagens/telegrafo2.jpg", "imagens/telegrafo3.jpg"]
     },
     "mendanha": {
-        nome: "Mendanha", dificuldade: "A definir", avaliacao: "Sem avaliações",
-        imagens: ["", "", ""]
+        nome: "Mendanha", dificuldade: "Moderada", nivel: 2, tempo: "2h", distancia: "4 km",
+        imagens: ["imagens/cachoeiramendanha.jpg", "imagens/Mendanha2.jpg", "imagens/Mendanha3.jpg"]
     },
     "praias-selvagens": {
-        nome: "Praias Selvagens", dificuldade: "A definir", avaliacao: "Sem avaliações",
-        imagens: ["", "", ""]
+        nome: "Praias Selvagens", dificuldade: "Moderada", nivel: 2, tempo: "1h30", distancia: "3 km",
+        imagens: ["imagens/selvagem1.jpg", "imagens/selvagem2.jpg", "imagens/selvagem3.jpg"]
     },
     "pedra-da-tartaruga": {
-        nome: "Pedra da Tartaruga", dificuldade: "A definir", avaliacao: "Sem avaliações",
-        imagens: ["", "", ""]
+        nome: "Pedra da Tartaruga", dificuldade: "Moderada", nivel: 2, tempo: "1h40", distancia: "3 km",
+        imagens: ["imagens/tartaruga1.jpg", "imagens/tartaruga2.jpg", "imagens/tartaruga3.jpg"]
     },
     "pico-da-pedra-branca": {
-        nome: "Pico da Pedra Branca", dificuldade: "A definir", avaliacao: "Sem avaliações",
-        imagens: ["", "", ""]
+        nome: "Pico da Pedra Branca", dificuldade: "Muito difícil", nivel: 4, tempo: "5h", distancia: "9 km",
+        imagens: ["imagens/branca1.jpg", "imagens/branca2.jpg", "imagens/branca3.jpg"]
     },
     "pedra-do-quilombo": {
-        nome: "Pedra do Quilombo", dificuldade: "A definir", avaliacao: "Sem avaliações",
-        imagens: ["", "", ""]
+        nome: "Pedra do Quilombo", dificuldade: "Difícil", nivel: 3, tempo: "3h30", distancia: "6 km",
+        imagens: ["imagens/quilombo1.jpg", "imagens/quilombo2.jpg", "imagens/quilombo3.jpg"]
     },
     "pedra-do-osso": {
-        nome: "Pedra do Osso", dificuldade: "A definir", avaliacao: "Sem avaliações",
-        imagens: ["", "", ""]
+        nome: "Pedra do Osso", dificuldade: "Difícil", nivel: 3, tempo: "2h30", distancia: "4,5 km",
+        imagens: ["imagens/osso1.jpg", "imagens/osso2.jpg", "imagens/osso3.jpg"]
     }
 };
 
@@ -88,8 +88,17 @@ window.abrirJanelaDestino = function(id) {
 
     elementoQueAbriuJanela = document.activeElement;
     document.getElementById("janela-destino-titulo").textContent = destino.nome;
-    document.getElementById("janela-destino-dificuldade").textContent = destino.dificuldade;
-    document.getElementById("janela-destino-avaliacao").textContent = destino.avaliacao;
+    const campoDificuldade = document.getElementById("janela-destino-dificuldade");
+    campoDificuldade.replaceChildren();
+    const indicador = document.createElement("span");
+    indicador.className = `indicador-dificuldade nivel-${destino.nivel}`;
+    indicador.setAttribute("aria-label", destino.dificuldade);
+    for (let i = 0; i < 4; i++) indicador.appendChild(document.createElement("i"));
+    const textoNivel = document.createElement("span");
+    textoNivel.textContent = destino.dificuldade;
+    campoDificuldade.append(indicador, textoNivel);
+    document.getElementById("janela-destino-tempo").textContent = destino.tempo;
+    document.getElementById("janela-destino-distancia").textContent = destino.distancia;
     mostrarImagens(destino);
 
     janelaDestino.hidden = false;

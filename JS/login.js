@@ -1,29 +1,37 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("#loginmain form");
+
     if (!form) return;
 
-    const email = document.getElementById("email");
+    const identificador = document.getElementById("email");
     const senha = document.getElementById("senha");
 
     form.noValidate = true;
 
     function limparErro(campo) {
-        const proximo = campo.nextElementSibling;
-        if (proximo && proximo.classList.contains("erro")) proximo.remove();
+        const aviso = campo.nextElementSibling;
+
+        if (aviso && aviso.classList.contains("erro")) {
+            aviso.remove();
+        }
     }
 
     function mostrarErro(campo, mensagem) {
         limparErro(campo);
+
         const aviso = document.createElement("span");
         aviso.className = "erro";
         aviso.setAttribute("role", "alert");
         aviso.textContent = mensagem;
+
         campo.insertAdjacentElement("afterend", aviso);
     }
 
     function removerSucesso() {
-        const antigo = document.getElementById("login-sucesso");
-        if (antigo) antigo.remove();
+        const mensagem = document.getElementById("login-sucesso");
+
+        if (mensagem) mensagem.remove();
     }
 
     const rotulo = document.createElement("label");
@@ -37,52 +45,74 @@ document.addEventListener("DOMContentLoaded", function () {
 
     rotulo.appendChild(caixa);
     rotulo.appendChild(document.createTextNode("Mostrar senha"));
+
     senha.insertAdjacentElement("afterend", rotulo);
 
     caixa.addEventListener("change", function () {
         senha.type = caixa.checked ? "text" : "password";
     });
 
-    email.addEventListener("input", function () {
-        limparErro(email);
+    identificador.addEventListener("input", function () {
+        limparErro(identificador);
     });
 
     senha.addEventListener("input", function () {
         limparErro(senha);
     });
 
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
+    // "async" porque o login agora confere a senha protegida (hash) e precisa esperar
+    form.addEventListener("submit", async function (evento) {
+        evento.preventDefault();
+
         removerSucesso();
-        limparErro(email);
+        limparErro(identificador);
         limparErro(senha);
 
-        let primeiroErro = null;
-        const padraoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const valor = identificador.value.trim();
 
-        if (!padraoEmail.test(email.value.trim())) {
-            mostrarErro(email, "Digite um e-mail válido, como nome@exemplo.com.");
-            primeiroErro = email;
-        }
+        const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor);
+        const loginValido = /^[A-Za-z]{6}$/.test(valor);
 
-        if (senha.value.length !== 8) {
-            mostrarErro(senha, "A senha deve ter exatamente 8 caracteres.");
-            if (!primeiroErro) primeiroErro = senha;
-        }
-
-        if (primeiroErro) {
-            primeiroErro.focus();
+        if (!emailValido && !loginValido) {
+            mostrarErro(identificador, "Digite um e-mail válido ou um login com exatamente 6 letras.");
+            identificador.focus();
             return;
         }
 
-        const sucesso = document.createElement("div");
-        sucesso.id = "login-sucesso";
-        sucesso.setAttribute("role", "status");
-        sucesso.style.cssText =
-            "margin:12px auto;padding:12px 16px;max-width:420px;border-radius:8px;" +
-            "background:#eef7ef;border:1px solid #6fd58c;color:#1f5c2f;font-weight:600;";
-        sucesso.textContent =
-            "Dados conferidos! O acesso à conta será liberado quando o site tiver um servidor.";
-        form.appendChild(sucesso);
+        if ((senha.value.match(/\p{L}/gu) || []).length < 8) {
+            mostrarErro(senha, "A senha deve ter no mínimo 8 letras.");
+            senha.focus();
+            return;
+        }
+
+        if (!window.ExploraZOAuth) {
+            mostrarErro(identificador, "O sistema de autenticação não foi carregado.");
+            return;
+        }
+
+        try {
+            await window.ExploraZOAuth.entrar(valor, senha.value);
+
+            const sucesso = document.createElement("div");
+            sucesso.id = "login-sucesso";
+            sucesso.setAttribute("role", "status");
+            sucesso.style.cssText = "margin:12px auto;padding:12px 16px;max-width:420px;border-radius:8px;background:#eef7ef;border:1px solid #6fd58c;color:#1f5c2f;font-weight:600;";
+            sucesso.textContent = "Login realizado com sucesso! Redirecionando...";
+
+            form.appendChild(sucesso);
+
+            const botao = form.querySelector('button[type="submit"]');
+
+            if (botao) botao.disabled = true;
+
+            const destino = window.ExploraZOAuth.obterDestino();
+
+            setTimeout(function () {
+                window.location.href = destino;
+            }, 1200);
+
+        } catch (erro) {
+            mostrarErro(identificador, erro.message);
+        }
     });
 });

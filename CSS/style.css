@@ -70,7 +70,7 @@ header h1 span:hover {color: #a5f3b8;}
     
 a#login {
     position: absolute;
-    right: 20px;
+    right: 72px; /* fica ao lado do botão de tema (que está em right: 20px), sem sobrepor */
     top: 41px;
     color: white;
     text-decoration: none;
@@ -97,6 +97,17 @@ nav a {
 }
 nav a:hover, #login:hover {
     color: #a5f3b8;
+}
+
+/* Telas de computador estreitas: itens do menu mais juntos, para não encostar no "Meu perfil" */
+@media (min-width: 1001px) and (max-width: 1060px) {
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        margin-left: 8px;
+    }
 }
 
 /* Responsividade com celular e telas menores*/
@@ -1322,7 +1333,7 @@ body:has(#experiencias) #orcamento {
 #botao-tema {
     position: absolute;
     top: 33px;
-    right: 130px;
+    right: 20px; /* canto direito; o link Login / Meu perfil fica à esquerda dele */
     z-index: 900;
     width: 42px;
     height: 42px;
@@ -1406,6 +1417,10 @@ html:not(.modo-escuro) #indexmain #quem-somos,
 html:not(.modo-escuro) #indexmain .duvida {
     background-color: #f7f9f5;
     border-color: #dce7dc;
+}
+
+html:not(.modo-escuro) #indexmain #porque-contratar .card-vantagem {
+    border-color: rgb(24, 120, 50);
 }
 
 html:not(.modo-escuro) #indexmain .card-destino:hover,
@@ -1557,6 +1572,12 @@ html.modo-escuro .botao-link {
 
 html.modo-escuro .botao-link:hover {
     background-color: #1f3a2a;
+}
+html.modo-escuro .modal-trilha .dificuldade-trilha,
+html.modo-escuro .modal-trilha .dificuldade-trilha strong,
+html.modo-escuro .modal-trilha .dificuldade-trilha .texto-dificuldade {
+    background-color: #1c2521;
+    color: #6fd58c;
 }
 /*Essa parte do CSS foi feito pelo Vinicius - modo claro e escuro*/
 
@@ -1837,3 +1858,946 @@ html:not(.modo-escuro) #janela-destino .janela-destino-botao-orcamento {
 html:not(.modo-escuro) #janela-destino .janela-destino-botao-orcamento:hover {
     background: #115f27;
 }
+
+/* =====================================
+   PADRONIZAÇÃO DA PÁGINA CRIAR CONTA
+   ===================================== */
+
+#maincriar {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 30px;
+}
+
+#principalcriar {
+    width: 100%;
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #f7f9f5;
+    border-radius: 12px;
+    text-align: left;
+}
+
+#principalcriar h2 {
+    margin: 0 0 25px;
+    color: rgb(24, 120, 50);
+    text-align: center;
+    font-size: 26px;
+}
+
+/* Formulário */
+
+#formCadastro {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Campos */
+
+#formCadastro .campo-cadastro {
+    margin-bottom: 18px;
+}
+
+#formCadastro .campo-cadastro > label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+    color: #26382d;
+}
+
+#formCadastro input:not([type="radio"]):not([type="checkbox"]) {
+    display: block;
+    width: 100%;
+    min-height: 43px;
+    padding: 11px 12px;
+    border: 1px solid #cfd8cf;
+    border-radius: 7px;
+    background-color: #fff;
+    color: #26382d;
+    font-family: inherit;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+/* Efeito ao clicar nos campos */
+
+#formCadastro input:focus {
+    outline: 2px solid #9cc8a2;
+    border-color: rgb(24, 120, 50);
+}
+
+/* Caixas de seleção */
+
+#formCadastro fieldset {
+    margin: 20px 0;
+    padding: 18px;
+    border: 1px solid #cfd8cf;
+    border-radius: 8px;
+}
+
+#formCadastro legend {
+    padding: 0 7px;
+    color: rgb(24, 120, 50);
+    font-weight: bold;
+}
+
+#formCadastro fieldset label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: 8px 15px 8px 0;
+    cursor: pointer;
+}
+
+#formCadastro input[type="radio"],
+#formCadastro input[type="checkbox"] {
+    accent-color: rgb(24, 120, 50);
+    cursor: pointer;
+}
+
+/* Botão Criar Conta */
+
+#formCadastro button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    background-color: rgb(24, 120, 50);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#formCadastro button:hover {
+    background-color: rgb(17, 95, 39);
+}
+
+/* Modo escuro */
+
+html.modo-escuro #principalcriar {
+    background-color: #1c2521 !important;
+}
+
+html.modo-escuro #principalcriar h2 {
+    color: #6fd58c !important;
+}
+
+html.modo-escuro #formCadastro .campo-cadastro > label {
+    color: #d5dfd9 !important;
+}
+
+html.modo-escuro #formCadastro fieldset {
+    border-color: #3a4a43 !important;
+}
+
+html.modo-escuro #formCadastro legend {
+    color: #6fd58c !important;
+}
+
+html.modo-escuro #formCadastro input:not([type="radio"]):not([type="checkbox"]) {
+    background-color: #232d29 !important;
+    color: #e6ece8 !important;
+    border-color: #3a4a43 !important;
+}
+
+html.modo-escuro #formCadastro input::placeholder {
+    color: #8a9a92;
+}
+
+/* Responsividade */
+
+@media (max-width: 600px) {
+    #maincriar {
+        width: 100%;
+        margin: 12px auto;
+        padding: 15px;
+    }
+
+    #principalcriar {
+        padding: 20px 14px;
+    }
+
+    #principalcriar h2 {
+        font-size: 21px;
+    }
+
+    #formCadastro fieldset label {
+        display: flex;
+        margin: 12px 0;
+    }
+}
+
+
+/* CARDS DE DESTINOS: dificuldade, tempo e distância (home e orçamento) */
+body:has(#experiencias) #destinos .card-destino {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 18px;
+    background: #f7f9f5;
+    border: 1px solid #dce7dc;
+    border-radius: 18px;
+    color: #1f2d27;
+    transition: 0.2s;
+}
+
+body:has(#experiencias) #destinos .card-destino:hover {
+    transform: translateY(-5px);
+    background: #eef7ef;
+    border-color: #187832;
+}
+
+body:has(#experiencias) #destinos .card-destino:focus-visible {
+    outline: 2px solid #187832;
+    outline-offset: 3px;
+}
+
+body:has(#experiencias) #destinos .card-destino h3 {
+    font-size: 17px;
+    margin: 0;
+    color: #187832;
+}
+
+body:has(#experiencias) #destinos .card-destino p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #555;
+    margin: 0;
+}
+
+#indexmain .card-destino .dados-trilha,
+#indexmain .card-outro .dados-trilha,
+body:has(#experiencias) #destinos .card-destino .dados-trilha {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #527463;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+#indexmain .card-destino .dados-trilha span,
+#indexmain .card-outro .dados-trilha span,
+body:has(#experiencias) #destinos .card-destino .dados-trilha span {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+.dados-trilha .linha-dificuldade,
+.dados-trilha .linha-percurso {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dados-trilha .rotulo-dificuldade {
+    font-weight: 700;
+}
+
+.dados-trilha .texto-nivel {
+    font-weight: 600;
+}
+
+.dados-trilha .linha-percurso {
+    gap: 9px 14px;
+    color: #a7cdb4;
+}
+
+.dados-trilha .linha-percurso i,
+#janela-destino .janela-destino-informacoes i,
+.modal-trilha .duracao-trilha i {
+    color: #70db91;
+    margin-right: 3px;
+}
+
+/* Quatro pontos: aumentam de tamanho e de intensidade conforme o nível. */
+.indicador-dificuldade {
+    --cor-pontos: #65d68b;
+    --tamanho-ponto: 7px;
+    display: inline-flex;
+    gap: 1px;
+    align-items: center;
+    vertical-align: middle;
+    flex: none;
+}
+
+.indicador-dificuldade i {
+    display: inline-flex;
+    width: 12px;
+    height: 14px;
+    align-items: center;
+    justify-content: center;
+}
+
+.indicador-dificuldade i::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 5px;
+    background: #7e9689;
+    border-radius: 50%;
+}
+
+.indicador-dificuldade.nivel-1 { --cor-pontos: #65d68b; --tamanho-ponto: 7px; }
+.indicador-dificuldade.nivel-2 { --cor-pontos: #e4b349; --tamanho-ponto: 9px; }
+.indicador-dificuldade.nivel-3 { --cor-pontos: #f18c46; --tamanho-ponto: 11px; }
+.indicador-dificuldade.nivel-4 { --cor-pontos: #e75a57; --tamanho-ponto: 13px; }
+
+.indicador-dificuldade.nivel-1 i:nth-child(-n+1)::after,
+.indicador-dificuldade.nivel-2 i:nth-child(-n+2)::after,
+.indicador-dificuldade.nivel-3 i:nth-child(-n+3)::after,
+.indicador-dificuldade.nivel-4 i:nth-child(-n+4)::after {
+    width: var(--tamanho-ponto);
+    height: var(--tamanho-ponto);
+    background: var(--cor-pontos);
+}
+
+/* Modal da home: dificuldade visível e informações de duração. */
+#janela-destino #janela-destino-dificuldade {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+#janela-destino #janela-destino-dificuldade .indicador-dificuldade,
+#janela-destino #janela-destino-dificuldade .indicador-dificuldade i {
+    display: inline-flex;
+}
+
+/* Mesmo visual nas duas opções de tema. */
+html:not(.modo-escuro) #indexmain .dados-trilha,
+body:has(#experiencias) #destinos .card-destino .dados-trilha {
+    border-top-color: #dce7dc;
+}
+
+html:not(.modo-escuro) #indexmain .dados-trilha .linha-percurso,
+body:has(#experiencias) #destinos .card-destino .linha-percurso {
+    color: #52685b;
+}
+
+html:not(.modo-escuro) #indexmain .dados-trilha .linha-percurso i,
+body:has(#experiencias) #destinos .card-destino .linha-percurso i,
+html:not(.modo-escuro) #janela-destino .janela-destino-informacoes i {
+    color: #187832;
+}
+
+html.modo-escuro body:has(#experiencias) #destinos .card-destino {
+    background: #293d35;
+    border-color: #385247;
+    color: #e6ece8;
+}
+
+html.modo-escuro body:has(#experiencias) #destinos .card-destino:hover {
+    background: #30493e;
+    border-color: #70db91;
+}
+
+html.modo-escuro body:has(#experiencias) #destinos .card-destino p {
+    color: #dddddd !important;
+}
+
+html.modo-escuro body:has(#experiencias) #destinos .card-destino .linha-percurso,
+html.modo-escuro body:has(#experiencias) #destinos .card-destino .linha-percurso i {
+    color: #a7cdb4;
+}
+
+.modal-trilha .bolinhas-trilha.indicador-dificuldade {
+    letter-spacing: normal;
+}
+
+.modal-trilha .duracao-trilha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+    color: #52685b;
+    font-size: 14px;
+}
+/* Essa parte do CSS foi feita pelo Vinicius e Lucas - Perfil */
+#perfilmain {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 30px;
+    text-align: left;
+}
+
+main#perfilmain + footer {
+    color: white;
+}
+
+#perfilmain [hidden] {
+    display: none !important;
+}
+
+.perfil-topo,
+.perfil-painel {
+    background-color: #f7f9f5;
+    border: 1px solid #dfe8df;
+    border-radius: 12px;
+}
+
+.perfil-topo {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 20px;
+    padding: 24px;
+}
+
+.perfil-foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 110px;
+    height: 110px;
+    overflow: hidden;
+    border: 3px solid #69d68a;
+    border-radius: 50%;
+    background-color: #dcefe1;
+    color: rgb(24, 120, 50);
+    font-size: 46px;
+}
+
+.perfil-foto-grande {
+    width: 96px;
+    height: 96px;
+    font-size: 40px;
+}
+
+.perfil-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.perfil-identificacao {
+    min-width: 0;
+}
+
+.perfil-identificacao h2,
+.perfil-painel h3,
+.perfil-fieldset legend {
+    color: rgb(24, 120, 50);
+}
+
+.perfil-identificacao h2 {
+    margin: 0 0 6px;
+    font-size: 26px;
+    overflow-wrap: anywhere;
+}
+
+.perfil-identificacao span {
+    display: block;
+}
+
+.perfil-texto-claro,
+.perfil-ajuda,
+.perfil-contador,
+.perfil-item dt {
+    color: #5f7266;
+    font-size: 14px;
+}
+
+.perfil-texto-claro {
+    margin-bottom: 2px;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.perfil-texto-descricao {
+    margin-top: 10px;
+    color: #26382d;
+    font-size: 15px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.perfil-abas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.perfil-aba {
+    padding: 11px 18px;
+    background-color: #f7f9f5;
+    color: #26382d;
+    border: 1px solid #cfd8cf;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.perfil-aba:hover {
+    background-color: #eef7ef;
+}
+
+.perfil-aba-ativa,
+.perfil-aba-ativa:hover {
+    background-color: rgb(24, 120, 50);
+    border-color: rgb(24, 120, 50);
+    color: #fff;
+}
+
+.perfil-painel {
+    padding: 28px;
+}
+
+.perfil-painel h3 {
+    margin: 0 0 4px;
+    font-size: 22px;
+}
+
+.perfil-ajuda {
+    display: block;
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+.perfil-painel > .perfil-ajuda {
+    margin: 0 0 22px;
+}
+
+.perfil-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin: 0 0 26px;
+}
+
+.perfil-item,
+.perfil-opcao {
+    background-color: #fff;
+    border: 1px solid #e1e9e1;
+    border-radius: 8px;
+}
+
+.perfil-item {
+    padding: 14px 16px;
+}
+
+.perfil-item-largo {
+    grid-column: 1 / -1;
+}
+
+.perfil-item dt {
+    margin-bottom: 4px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.perfil-item dd {
+    margin: 0;
+    color: #26382d;
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+.perfil-grade {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 18px;
+}
+
+.perfil-grade-endereco {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.perfil-grade-endereco .perfil-col-1 { grid-column: span 1; }
+.perfil-grade-endereco .perfil-col-2 { grid-column: span 2; }
+.perfil-grade-endereco .perfil-col-3 { grid-column: span 3; }
+.perfil-grade-endereco .perfil-col-4 { grid-column: span 4; }
+
+.perfil-campo {
+    min-width: 0;
+    margin-bottom: 18px;
+}
+
+.perfil-campo label {
+    display: block;
+    margin-bottom: 7px;
+    color: #26382d;
+    font-weight: 600;
+}
+
+.perfil-campo input,
+.perfil-campo textarea {
+    display: block;
+    width: 100%;
+    min-height: 43px;
+    padding: 11px 12px;
+    border: 1px solid #cfd8cf;
+    border-radius: 7px;
+    background-color: #fff;
+    color: #26382d;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.perfil-campo textarea {
+    resize: vertical;
+}
+
+.perfil-campo input:focus,
+.perfil-campo textarea:focus {
+    outline: 2px solid #9cc8a2;
+    border-color: rgb(24, 120, 50);
+}
+
+.perfil-contador {
+    display: block;
+    margin-top: 4px;
+    font-size: 13px;
+    text-align: right;
+}
+
+.perfil-fieldset {
+    min-width: 0;
+    margin: 6px 0 22px;
+    padding: 18px;
+    border: 1px solid #cfd8cf;
+    border-radius: 8px;
+}
+
+.perfil-fieldset legend {
+    padding: 0 7px;
+    font-weight: bold;
+}
+
+.perfil-foto-editor {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #dfe8df;
+}
+
+.perfil-opcao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 10px;
+    padding: 11px 14px;
+    cursor: pointer;
+}
+
+.perfil-opcao input,
+.perfil-marcar input {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    accent-color: rgb(24, 120, 50);
+    cursor: pointer;
+}
+
+.perfil-opcoes-grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 10px;
+}
+
+.perfil-opcoes-grade .perfil-opcao {
+    margin: 0;
+}
+
+.perfil-opcoes-grade .perfil-ajuda {
+    grid-column: 1 / -1;
+}
+
+.perfil-marcar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 20px;
+    cursor: pointer;
+}
+
+.perfil-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.perfil-botao,
+.perfil-botoes .perfil-botao-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 12px 22px;
+    border: 2px solid rgb(24, 120, 50);
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.perfil-botao {
+    background-color: rgb(24, 120, 50);
+    color: #fff;
+}
+
+.perfil-botoes .perfil-botao-link i {
+    margin-right: 10px;
+}
+
+.perfil-botao:hover {
+    background-color: rgb(17, 95, 39);
+    color: #fff;
+}
+
+.perfil-botao:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.perfil-botao-secundario {
+    background-color: transparent;
+    color: rgb(24, 120, 50);
+}
+
+.perfil-botao-secundario:hover {
+    background-color: #eef7ef;
+    color: rgb(17, 95, 39);
+}
+
+.perfil-botao-sair {
+    margin-left: auto;
+    background-color: transparent;
+    border-color: #b3261e;
+    color: #b3261e;
+}
+
+.perfil-botao-sair:hover {
+    background-color: #b3261e;
+    color: #fff;
+}
+
+.perfil-mensagem {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.perfil-mensagem:empty {
+    display: none;
+}
+
+.perfil-mensagem-ok {
+    background-color: #eef7ef;
+    border: 1px solid #6fd58c;
+    color: #1f5c2f;
+}
+
+.perfil-mensagem-erro {
+    background-color: #fdecea;
+    border: 1px solid #f0a8a2;
+    color: #b3261e;
+}
+
+.perfil-aviso {
+    display: flex;
+    gap: 12px;
+    margin-top: 26px;
+    padding: 14px 16px;
+    background-color: #fff;
+    border-left: 4px solid #69d68a;
+    border-radius: 6px;
+    color: #3f5246;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.perfil-aviso i {
+    margin-top: 2px;
+    color: rgb(24, 120, 50);
+    font-size: 20px;
+}
+
+/* Modo escuro */
+html.modo-escuro .perfil-topo,
+html.modo-escuro .perfil-painel,
+html.modo-escuro .perfil-aba {
+    background-color: #1c2521;
+    border-color: #3a4a43;
+}
+
+html.modo-escuro .perfil-foto {
+    background-color: #254b35;
+    border-color: #6fd58c;
+    color: #a5f3b8;
+}
+
+html.modo-escuro .perfil-texto-claro,
+html.modo-escuro .perfil-ajuda,
+html.modo-escuro .perfil-contador,
+html.modo-escuro #perfilmain .perfil-item dt {
+    color: #9fb0a6 !important;
+}
+
+html.modo-escuro .perfil-texto-descricao,
+html.modo-escuro .perfil-aba {
+    color: #d5dfd9;
+}
+
+html.modo-escuro .perfil-aba:hover {
+    background-color: #1f3a2a;
+    color: #fff;
+}
+
+html.modo-escuro .perfil-aba-ativa,
+html.modo-escuro .perfil-aba-ativa:hover,
+html.modo-escuro .perfil-botao {
+    background-color: #25924b;
+    border-color: #25924b;
+    color: #fff;
+}
+
+html.modo-escuro .perfil-item,
+html.modo-escuro .perfil-opcao,
+html.modo-escuro .perfil-aviso {
+    background-color: #232d29;
+    border-color: #3a4a43;
+}
+
+html.modo-escuro .perfil-foto-editor {
+    border-bottom-color: #3a4a43;
+}
+
+html.modo-escuro .perfil-campo input:focus,
+html.modo-escuro .perfil-campo textarea:focus {
+    outline-color: #6fd58c;
+    border-color: #6fd58c !important;
+}
+
+html.modo-escuro .perfil-opcao input,
+html.modo-escuro .perfil-marcar input {
+    accent-color: #6fd58c;
+}
+
+html.modo-escuro .perfil-botao:hover {
+    background-color: #2fae5b;
+    border-color: #2fae5b;
+}
+
+html.modo-escuro .perfil-botao-secundario {
+    background-color: transparent;
+    border-color: #6fd58c;
+    color: #6fd58c;
+}
+
+html.modo-escuro .perfil-botao-secundario:hover {
+    background-color: #1f3a2a;
+    color: #a5f3b8;
+}
+
+html.modo-escuro .perfil-botao-sair {
+    background-color: transparent;
+    border-color: #ff8a80;
+    color: #ff8a80;
+}
+
+html.modo-escuro .perfil-botao-sair:hover {
+    background-color: #b3261e;
+    border-color: #b3261e;
+    color: #fff;
+}
+
+html.modo-escuro .perfil-mensagem-ok {
+    background-color: #1f3a2a;
+    border-color: #6fd58c;
+    color: #a5f3b8;
+}
+
+html.modo-escuro .perfil-mensagem-erro {
+    background-color: #3a1f1d;
+    border-color: #8a3b36;
+    color: #ff8a80;
+}
+
+html.modo-escuro .perfil-aviso {
+    color: #c4d1ca;
+}
+
+html.modo-escuro .perfil-aviso i {
+    color: #6fd58c;
+}
+
+/* Responsividade */
+@media (max-width: 800px) {
+    .perfil-grade,
+    .perfil-grade-endereco {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-grade-endereco .perfil-col-1,
+    .perfil-grade-endereco .perfil-col-2,
+    .perfil-grade-endereco .perfil-col-3,
+    .perfil-grade-endereco .perfil-col-4 {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    #perfilmain {
+        width: 100%;
+        margin: 12px auto;
+        padding: 14px;
+    }
+
+    .perfil-topo,
+    .perfil-foto-editor {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .perfil-painel {
+        padding: 20px 16px;
+    }
+
+    .perfil-abas {
+        gap: 8px;
+    }
+
+    .perfil-aba {
+        flex: 1 1 calc(50% - 8px);
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .perfil-botoes {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .perfil-botao-sair {
+        margin-left: 0;
+    }
+}
+/* Essa parte do CSS foi feita pelo Vinicius e Lucas - Perfil */

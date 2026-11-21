@@ -1,0 +1,287 @@
+<!--Parte do Lucas e vinicius-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploraZO - Meu Perfil</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <script src="JS/tema.js"></script>
+    <script src="JS/topo.js" defer></script>
+</head>
+<body>
+    <header>
+        <img src="imagens/explorazo.png" alt="Logo do ExploraZO" width="120">
+        <h1>Explora<span>ZO</span></h1>
+        <a href="perfil.html" id="login" class="ativo"><i class="fa-regular fa-user"></i> Meu perfil</a>
+    </header>
+
+    <nav>
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="orçamento.html"><i class="fa-regular fa-calendar"></i> Orçamento</a>
+        <a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a>
+    </nav>
+
+    <main id="perfilmain">
+        <section class="perfil-topo">
+            <div class="perfil-foto">
+                <img id="topo-foto-imagem" alt="Foto de perfil" hidden>
+                <i id="topo-foto-icone" class="fa-regular fa-user"></i>
+            </div>
+            <div class="perfil-identificacao">
+                <h2 id="topo-nome"></h2>
+                <span id="topo-login" class="perfil-texto-claro"></span>
+                <span id="topo-email" class="perfil-texto-claro"></span>
+                <span id="topo-sobre" class="perfil-texto-descricao"></span>
+            </div>
+        </section>
+
+        <div class="perfil-abas" role="tablist" aria-label="Seções do perfil">
+            <button type="button" class="perfil-aba perfil-aba-ativa" role="tab" data-aba="conta" aria-selected="true">
+                <i class="fa-regular fa-id-card"></i> Minha conta
+            </button>
+            <button type="button" class="perfil-aba" role="tab" data-aba="dados" aria-selected="false">
+                <i class="fa-regular fa-pen-to-square"></i> Dados pessoais
+            </button>
+            <button type="button" class="perfil-aba" role="tab" data-aba="seguranca" aria-selected="false">
+                <i class="fa-solid fa-lock"></i> Segurança
+            </button>
+            <button type="button" class="perfil-aba" role="tab" data-aba="preferencias" aria-selected="false">
+                <i class="fa-solid fa-sliders"></i> Preferências
+            </button>
+        </div>
+
+        <section class="perfil-painel" id="aba-conta" role="tabpanel">
+            <h3>Minha conta</h3>
+            <span class="perfil-ajuda">Confira as informações cadastradas na sua conta.</span>
+
+            <dl class="perfil-lista">
+                <div class="perfil-item"><dt>Nome completo</dt><dd id="conta-nome"></dd></div>
+                <div class="perfil-item"><dt>E-mail</dt><dd id="conta-email"></dd></div>
+                <div class="perfil-item"><dt>Login</dt><dd id="conta-login"></dd></div>
+                <div class="perfil-item"><dt>Data de nascimento</dt><dd id="conta-nascimento"></dd></div>
+                <div class="perfil-item"><dt>Sexo</dt><dd id="conta-sexo"></dd></div>
+                <div class="perfil-item"><dt>CPF</dt><dd id="conta-cpf"></dd></div>
+                <div class="perfil-item"><dt>Nome da mãe</dt><dd id="conta-mae"></dd></div>
+                <div class="perfil-item"><dt>Telefone celular</dt><dd id="conta-celular"></dd></div>
+                <div class="perfil-item"><dt>Telefone fixo</dt><dd id="conta-fixo"></dd></div>
+                <div class="perfil-item perfil-item-largo"><dt>Endereço</dt><dd id="conta-endereco"></dd></div>
+                <div class="perfil-item perfil-item-largo"><dt>Sobre mim</dt><dd id="conta-sobre"></dd></div>
+                <div class="perfil-item"><dt>Notificações</dt><dd id="conta-notificacoes"></dd></div>
+                <div class="perfil-item"><dt>Novidades por e-mail</dt><dd id="conta-novidades"></dd></div>
+                <div class="perfil-item perfil-item-largo"><dt>Interesses de passeio</dt><dd id="conta-interesses"></dd></div>
+                <div class="perfil-item perfil-item-largo"><dt>Solicitações de orçamento</dt><dd id="conta-solicitacoes"></dd></div>
+            </dl>
+
+            <div class="perfil-botoes">
+                <button type="button" id="botao-editar" class="perfil-botao">
+                    <i class="fa-regular fa-pen-to-square"></i> Editar informações
+                </button>
+                <a href="orçamento.html" class="botao-link perfil-botao-link">
+                    <i class="fa-regular fa-calendar"></i> Ir para meu orçamento
+                </a>
+                <button type="button" id="botao-sair" class="perfil-botao perfil-botao-sair">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Sair da conta
+                </button>
+            </div>
+        </section>
+
+        <section class="perfil-painel" id="aba-dados" role="tabpanel" hidden>
+            <h3>Dados pessoais</h3>
+            <span class="perfil-ajuda">Altere suas informações e clique em Salvar alterações.</span>
+
+            <form id="form-dados" novalidate>
+                <div class="perfil-foto-editor">
+                    <div class="perfil-foto perfil-foto-grande">
+                        <img id="editor-foto-imagem" alt="Prévia da foto de perfil" hidden>
+                        <i id="editor-foto-icone" class="fa-regular fa-user"></i>
+                    </div>
+                    <div class="perfil-foto-acoes">
+                        <div class="perfil-botoes">
+                            <button type="button" id="botao-escolher-foto" class="perfil-botao perfil-botao-secundario">
+                                <i class="fa-regular fa-image"></i> Escolher foto
+                            </button>
+                            <button type="button" id="botao-remover-foto" class="perfil-botao perfil-botao-secundario">
+                                <i class="fa-regular fa-trash-can"></i> Remover foto
+                            </button>
+                        </div>
+                        <span class="perfil-ajuda">A foto é reduzida automaticamente e só é salva ao clicar em Salvar alterações.</span>
+                        <input type="file" id="campo-foto" accept="image/*" hidden>
+                    </div>
+                </div>
+
+                <div class="perfil-grade">
+                    <div class="perfil-campo">
+                        <label for="campo-nome">Nome completo</label>
+                        <input type="text" id="campo-nome" maxlength="60" autocomplete="name">
+                    </div>
+                    <div class="perfil-campo">
+                        <label for="campo-email">E-mail</label>
+                        <input type="email" id="campo-email" autocomplete="email">
+                    </div>
+                    <div class="perfil-campo">
+                        <label for="campo-celular">Telefone celular</label>
+                        <input type="tel" id="campo-celular" placeholder="(21) 96683-2038" maxlength="15" inputmode="numeric" autocomplete="tel">
+                    </div>
+                    <div class="perfil-campo">
+                        <label for="campo-fixo">Telefone fixo</label>
+                        <input type="tel" id="campo-fixo" placeholder="(21) 3863-9453" maxlength="14" inputmode="numeric">
+                    </div>
+                </div>
+
+                <fieldset class="perfil-fieldset">
+                    <legend>Endereço</legend>
+                    <div class="perfil-grade perfil-grade-endereco">
+                        <div class="perfil-campo perfil-col-2">
+                            <label for="campo-cep">CEP</label>
+                            <input type="text" id="campo-cep" placeholder="00000-000" maxlength="9" inputmode="numeric" autocomplete="postal-code">
+                        </div>
+                        <div class="perfil-campo perfil-col-4">
+                            <label for="campo-endereco">Rua, número e complemento</label>
+                            <input type="text" id="campo-endereco" placeholder="Ex.: Rua das Flores, Nº 10, Apto 2" autocomplete="street-address">
+                        </div>
+                        <div class="perfil-campo perfil-col-2">
+                            <label for="campo-bairro">Bairro</label>
+                            <input type="text" id="campo-bairro">
+                        </div>
+                        <div class="perfil-campo perfil-col-3">
+                            <label for="campo-cidade">Cidade</label>
+                            <input type="text" id="campo-cidade" autocomplete="address-level2">
+                        </div>
+                        <div class="perfil-campo perfil-col-1">
+                            <label for="campo-estado">Estado (sigla)</label>
+                            <input type="text" id="campo-estado" placeholder="Ex.: RJ" maxlength="2" autocomplete="address-level1">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="perfil-campo">
+                    <label for="campo-sobre">Sobre mim (descrição pessoal)</label>
+                    <textarea id="campo-sobre" rows="4" maxlength="300" placeholder="Conte um pouco sobre você (opcional)"></textarea>
+                    <span class="perfil-contador" id="contador-sobre"></span>
+                </div>
+
+                <div class="perfil-botoes">
+                    <button type="submit" class="perfil-botao">
+                        <i class="fa-regular fa-floppy-disk"></i> Salvar alterações
+                    </button>
+                    <button type="button" id="botao-cancelar" class="perfil-botao perfil-botao-secundario">
+                        <i class="fa-solid fa-xmark"></i> Cancelar
+                    </button>
+                </div>
+                <div id="mensagem-dados" class="perfil-mensagem" role="status"></div>
+            </form>
+        </section>
+
+        <section class="perfil-painel" id="aba-seguranca" role="tabpanel" hidden>
+            <h3>Segurança da conta</h3>
+            <span class="perfil-ajuda">Para trocar a senha, informe primeiro a senha atual.</span>
+
+            <form id="form-senha" novalidate>
+                <div class="perfil-campo">
+                    <label for="campo-senha-atual">Senha atual</label>
+                    <input type="password" id="campo-senha-atual" autocomplete="current-password">
+                </div>
+                <div class="perfil-campo">
+                    <label for="campo-senha-nova">Nova senha (mínimo de 8 letras)</label>
+                    <input type="password" id="campo-senha-nova" autocomplete="new-password">
+                </div>
+                <div class="perfil-campo">
+                    <label for="campo-senha-confirmar">Confirmar nova senha</label>
+                    <input type="password" id="campo-senha-confirmar" autocomplete="new-password">
+                </div>
+
+                <label class="perfil-marcar" for="mostrar-senhas">
+                    <input type="checkbox" id="mostrar-senhas"> Mostrar senhas
+                </label>
+
+                <div class="perfil-botoes">
+                    <button type="submit" class="perfil-botao">
+                        <i class="fa-solid fa-key"></i> Alterar senha
+                    </button>
+                </div>
+                <div id="mensagem-senha" class="perfil-mensagem" role="status"></div>
+            </form>
+
+            <div class="perfil-aviso">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>
+                    <strong>Sobre a segurança:</strong> o ExploraZO ainda não tem servidor.
+                    Por isso, sua senha é guardada apenas como um código protegido (hash) neste navegador.
+                    É uma demonstração e não substitui a segurança de um sistema de login real.
+                </span>
+            </div>
+        </section>
+
+        <section class="perfil-painel" id="aba-preferencias" role="tabpanel" hidden>
+            <h3>Preferências</h3>
+            <span class="perfil-ajuda">Escolha como você quer usar o ExploraZO.</span>
+
+            <form id="form-preferencias" novalidate>
+                <fieldset class="perfil-fieldset">
+                    <legend>Notificações</legend>
+                    <label class="perfil-opcao" for="pref-notificacoes">
+                        <input type="checkbox" id="pref-notificacoes">
+                        <span>Ativar notificações sobre minhas solicitações de orçamento</span>
+                    </label>
+                    <label class="perfil-opcao" for="pref-novidades">
+                        <input type="checkbox" id="pref-novidades">
+                        <span>Receber novidades e ofertas por e-mail</span>
+                    </label>
+                    <span class="perfil-ajuda">Sua escolha já fica salva na conta. Os avisos só serão enviados quando o site tiver um servidor.</span>
+                </fieldset>
+
+                <fieldset class="perfil-fieldset perfil-opcoes-grade">
+                    <legend>Interesses de passeio</legend>
+                    <label class="perfil-opcao" for="interesse-trilhas">
+                        <input type="checkbox" name="interesse" id="interesse-trilhas" value="Trilhas"> <span>Trilhas</span>
+                    </label>
+                    <label class="perfil-opcao" for="interesse-cachoeiras">
+                        <input type="checkbox" name="interesse" id="interesse-cachoeiras" value="Cachoeiras"> <span>Cachoeiras</span>
+                    </label>
+                    <label class="perfil-opcao" for="interesse-praias">
+                        <input type="checkbox" name="interesse" id="interesse-praias" value="Praias"> <span>Praias</span>
+                    </label>
+                    <label class="perfil-opcao" for="interesse-cultura">
+                        <input type="checkbox" name="interesse" id="interesse-cultura" value="Cultura e história"> <span>Cultura e história</span>
+                    </label>
+                </fieldset>
+
+                <fieldset class="perfil-fieldset perfil-opcoes-grade">
+                    <legend>Aparência do site</legend>
+                    <label class="perfil-opcao" for="tema-claro">
+                        <input type="radio" name="tema" id="tema-claro" value="claro"> <span>Modo claro</span>
+                    </label>
+                    <label class="perfil-opcao" for="tema-escuro">
+                        <input type="radio" name="tema" id="tema-escuro" value="escuro"> <span>Modo escuro</span>
+                    </label>
+                    <span class="perfil-ajuda">A aparência é aplicada na hora, em todas as páginas, neste navegador.</span>
+                </fieldset>
+
+                <div class="perfil-botoes">
+                    <button type="submit" class="perfil-botao">
+                        <i class="fa-regular fa-floppy-disk"></i> Salvar preferências
+                    </button>
+                </div>
+                <div id="mensagem-preferencias" class="perfil-mensagem" role="status"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <h2>Nossos Canais de atendimento</h2>
+        <p id="femail"><i class="fa-regular fa-envelope"></i> contatosexplorazo@gmail.com</p>
+        <p id="ftelefone"><i class="fa-solid fa-phone"></i> (21) 93454-2234</p>
+        <p><i class="fa-solid fa-location-dot"></i> Rua Francisco de Campos, 354, Campo Grande.</p>
+        <hr>
+        <p>&copy; 2026 ExploraZO. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="JS/autenticacao.js"></script>
+    <script src="JS/menu-usuario.js"></script>
+    <script src="JS/perfil.js"></script>
+</body>
+</html>
